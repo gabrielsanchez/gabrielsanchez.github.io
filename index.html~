@@ -153,17 +153,33 @@
         </figcaption>
     </figure>
      
+     
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="images/portfolio/12.jpg" />
+        <figcaption>
+            <h2>Vivo</h2>
+            <p>International Symposium for Music and Code 2014<br>
+            <a href="http://vivo.cenart.tv/#art" target=_"blank">View more</a></p>            
+        </figcaption>
+    </figure>
+    
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="images/portfolio/13.jpg" />
+        <figcaption>
+            <h2>ACW</h2>
+            <p>[2009] Algorithmic Composition Works<br>
+            <a href="https://archive.org/details/ca254_gs" target=_"blank">Listen</a></p>            
+        </figcaption>
+    </figure>
+    
      <figure class="effect-oscar  wowload fadeInUp">
         <img src="images/portfolio/11.jpg" />
         <figcaption>
             <h2>CV</h2>
             <p>My resume.<br>
-            <a href="https://www.dropbox.com/s/niwi0990wp8z4j2/20151001-cv-gabrielsanchez.pdf?dl=0" target=_"blank">Download</a></p>            
+            <a href="https://www.dropbox.com/s/lcdftv5k9lpjjca/20151201-cv-gabrielsanchez.pdf?dl=0" target=_"blank">Download</a></p>            
         </figcaption>
     </figure>
-     
-    
-    
 
      
 </div>
@@ -250,11 +266,19 @@ Copyright 2015 Gabriel Alejandro Sanchez. All rights reserved.
 <!-- gallery -->
 <script src="assets/gallery/jquery.blueimp-gallery.min.js"></script>
 
-
-
-
 <!-- custom script -->
 <script src="assets/script.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70270514-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 </body>
 </html>
