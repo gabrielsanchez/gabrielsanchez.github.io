@@ -94,10 +94,34 @@
     </div>
     <script src="js/jquery.filterizr.min.js"></script>
     <script>
-      $(function() {
-        var f = $('.filtr-container').filterizr({ controlsSelector: '.fltr-controls' });
-        window.filterizr = f;
-      });
+      var workfilter = $('.filtr-container');
+      var perItem = $('.filtr-container .filtr-item');
+
+      var activeFilterizr = function() {
+          workfilter.filterizr({
+              controlsSelector: '.fltr-controls'
+          });
+
+      //console.log('item Height::', perItem.height());
+      }
+
+      //window preload images events
+      function imageLoadEvent(activeFilterizr) {
+          var oldonload = window.onload;
+          if (typeof window.onload != 'function') {
+              window.onload = activeFilterizr;
+          } else {
+              window.onload = function() {
+                  if (oldonload) {
+                      oldonload();
+                  }
+                  /* Make sure images load successfully then active the filterizr.js plugin */
+                  activeFilterizr();
+              }
+          }
+      }
+      //Start preload event
+      imageLoadEvent(activeFilterizr);
     </script>
   </body>
 </html>
