@@ -14,8 +14,10 @@
       --border: #252c3a;
       --accent1: #4f8ef7;
       --accent2: #a259f7;
+      --accent3: #2dd4bf;
       --accent1-glow: rgba(79, 142, 247, 0.15);
       --accent2-glow: rgba(162, 89, 247, 0.15);
+      --accent3-glow: rgba(45, 212, 191, 0.15);
       --text: #e8eaf0;
       --muted: #7a859a;
       --tag-bg: rgba(79, 142, 247, 0.12);
@@ -112,8 +114,99 @@
     .courses-section {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 2rem 6rem;
+      padding: 2rem 2rem 3rem;
     }
+
+    /* ── PLAYGROUND ── */
+    .playground-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .playground-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .play-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .play-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(ellipse at top left, var(--accent3-glow), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .play-card:hover {
+      background: var(--surface-hover);
+      border-color: rgba(45, 212, 191, 0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    .play-card:hover::before { opacity: 1; }
+
+    .play-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent3-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .play-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .play-card-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .play-card-cta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2dd4bf;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      position: relative;
+      z-index: 1;
+      transition: gap 0.2s;
+    }
+
+    .play-card:hover .play-card-cta { gap: 0.5rem; }
 
     .section-heading {
       font-size: 0.78rem;
@@ -154,8 +247,9 @@
       transition: opacity 0.3s;
     }
 
-    .card.blue::before  { background: radial-gradient(ellipse at top left, var(--accent1-glow), transparent 70%); }
+    .card.blue::before   { background: radial-gradient(ellipse at top left, var(--accent1-glow), transparent 70%); }
     .card.purple::before { background: radial-gradient(ellipse at top left, var(--accent2-glow), transparent 70%); }
+    .card.teal::before   { background: radial-gradient(ellipse at top left, var(--accent3-glow), transparent 70%); }
 
     .card:hover {
       background: var(--surface-hover);
@@ -163,8 +257,9 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.35);
     }
 
-    .card.blue:hover  { border-color: rgba(79, 142, 247, 0.45); }
+    .card.blue:hover   { border-color: rgba(79, 142, 247, 0.45); }
     .card.purple:hover { border-color: rgba(162, 89, 247, 0.45); }
+    .card.teal:hover   { border-color: rgba(45, 212, 191, 0.45); }
 
     .card:hover::before { opacity: 1; }
 
@@ -180,8 +275,9 @@
       z-index: 1;
     }
 
-    .card.blue  .card-icon { background: var(--accent1-glow); }
+    .card.blue   .card-icon { background: var(--accent1-glow); }
     .card.purple .card-icon { background: var(--accent2-glow); }
+    .card.teal   .card-icon { background: var(--accent3-glow); }
 
     .card-body { position: relative; z-index: 1; }
 
@@ -223,6 +319,11 @@
     .tag.purple-tag {
       background: rgba(162, 89, 247, 0.12);
       color: #c48dff;
+    }
+
+    .tag.teal-tag {
+      background: rgba(45, 212, 191, 0.12);
+      color: #5eead4;
     }
 
     .badge {
@@ -269,10 +370,11 @@
     footer a:hover { color: var(--text); }
 
     @media (max-width: 500px) {
-      .courses-grid { grid-template-columns: 1fr; }
+      .courses-grid, .playground-grid { grid-template-columns: 1fr; }
       header { padding: 1rem 1.25rem; }
       .hero { padding: 4rem 1.25rem 3rem; }
-      .courses-section { padding: 1rem 1.25rem 4rem; }
+      .courses-section { padding: 1rem 1.25rem 2rem; }
+      .playground-section { padding: 0 1.25rem 4rem; }
     }
   </style>
 </head>
@@ -330,6 +432,34 @@
             <span class="badge soon">Coming Soon</span>
           </div>
         </div>
+
+      </div>
+    </section>
+
+    <section class="playground-section">
+      <p class="section-heading">Playground</p>
+      <div class="playground-grid">
+
+        <a class="play-card" href="https://vectorplayground.macromia.ai/" target="_blank" rel="noopener">
+          <div class="play-card-icon">🧮</div>
+          <div class="play-card-title">Linear Algebra Explorer</div>
+          <div class="play-card-desc">Visualize vectors, matrices, transformations, and eigenspaces interactively in 2D and 3D.</div>
+          <span class="play-card-cta">Launch →</span>
+        </a>
+
+        <a class="play-card" href="https://probabilitysimulator.macromia.ai/" target="_blank" rel="noopener">
+          <div class="play-card-icon">🎲</div>
+          <div class="play-card-title">Probability Experiments</div>
+          <div class="play-card-desc">Run simulations of classic probability problems and watch distributions emerge in real time.</div>
+          <span class="play-card-cta">Launch →</span>
+        </a>
+
+        <a class="play-card" href="https://quantumsimulator.macromia.ai/" target="_blank" rel="noopener">
+          <div class="play-card-icon">⚛️</div>
+          <div class="play-card-title">Quantum Circuit Simulator</div>
+          <div class="play-card-desc">Build and run quantum circuits in your browser — gates, measurement, entanglement, and more.</div>
+          <span class="play-card-cta">Launch →</span>
+        </a>
 
       </div>
     </section>
